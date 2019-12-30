@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.21.1/babel.min.js"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha256-YLGeXaapI0/5IgZopewRJcFXomhRMlYYjugPLSyNjTY="
+      crossorigin="anonymous"
+    />
+
+    <!-- google like logo font -->
+    <link
+      href="https://fonts.googleapis.com/css?family=Darker+Grotesque:600&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap-grid.min.css"
+      integrity="sha256-D9AvR0EzkNZoWZVSvI3ch+uf/Z5izrIpcbsykVphwPU="
+      crossorigin="anonymous"
+    />
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha256-CjSoeELFOcH0/uxWu6mC/Vlrc1AARqbm/jiiImDGV3s="
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      type="text/javascript"
+      src="https://twitter.github.io/typeahead.js/releases/latest/typeahead.bundle.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/gh/xcash/bootstrap-autocomplete@master/dist/latest/bootstrap-autocomplete.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700"
+      rel="stylesheet"
+    />
+
+    <style type="text/css">
+      ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      .resultBar {
+        height: 60px;
+      }
+      .panel {
+        padding: 20px;
+      }
+      .has {
+        min-width: 100px;
+        text-align: center;
+        color: #fff;
+        margin: 5px;
+        padding: 5px;
+        background-color: #00800091;
+        border-radius: 20px;
+      }
+      .doesnot {
+        min-width: 100px;
+        text-align: center;
+        color: #fff;
+        margin: 5px;
+        padding: 5px;
+        background-color: #e235359e;
+        border-radius: 20px;
+      }
+      .bs-example {
+        font-family: sans-serif;
+        position: relative;
+        margin: 100px;
+      }
+      .typeahead,
+      .tt-query,
+      .tt-hint {
+        border: 2px solid #cccccc;
+        border-radius: 8px 0px 0px 8px;
+        font-size: 22px; /* Set input font size */
+        height: 40px;
+        /*line-height: 30px;*/
+        outline: medium none;
+        padding: 8px 12px;
+        /*width: 396px;*/
+      }
+      .eachClass {
+        border: 2px solid #cccccc;
+        border-radius: 30px;
+        /*font-size: 22px;*/
+        /*height: 40px;*/
+        line-height: 8px;
+        outline: medium none;
+        margin: 4px;
+        /*padding: 8px 12px;*/
+        /*width: 396px;*/
+      }
+      .typeahead {
+        background-color: #ffffff;
+      }
+      .typeahead:focus {
+        border: 2px solid #0097cf;
+      }
+      .tt-query {
+        box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+      }
+      .tt-hint {
+        color: #999999;
+      }
+      .tt-menu {
+        background-color: #ffffff;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        border-radius: 8px;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        margin-top: 12px;
+        padding: 8px 0;
+        width: 422px;
+      }
+      .tt-suggestion {
+        font-size: 22px; /* Set suggestion dropdown font size */
+        padding: 3px 20px;
+      }
+      .tt-suggestion:hover {
+        cursor: pointer;
+        background-color: #0097cf;
+        color: #ffffff;
+      }
+      .tt-suggestion p {
+        margin: 0;
+      }
+
+      .search-bar-row {
+        position: absolute;
+        left: 25vw;
+        width: 50vw;
+        top: 30vh;
+      }
+
+      .results-row {
+        position: absolute;
+        left: 25vw;
+        width: 50vw;
+        top: 40vh;
+      }
+
+      .search-bar-input {
+        outline: none;
+        font-size: larger;
+        height: 46px;
+        padding: 0px 20px 0px 20px;
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+        border-color: rgba(223, 225, 229, 0);
+      }
+
+      .header-logo-div {
+        padding-top: 5vh;
+        width: 100vw;
+        text-align: center;
+        font-size: 6em;
+        font-family: "Darker Grotesque", sans-serif;
+      }
+
+      .header-subtext-div {
+        width: 100vw;
+        color: darkslategray;
+        text-align: center;
+        font-size: 1.25em;
+        font-family: "Darker Grotesque", sans-serif;
+      }
+
+      .inner-result {
+        font-size: 1.25em;
+      }
+      .outer-result {
+        padding: 1em;
+
+        margin: 1em;
+
+        border-radius: 10px;
+
+        box-shadow: 0 1px 6px 0 rgba(32, 33, 36, 0.28);
+        border-color: rgba(223, 225, 229, 0);
+      }
+
+      .refresh-btn {
+        position: absolute;
+        bottom: 10px;
+        left: 20px;
+      }
+    </style>
+    <title></title>
+  </head>
+  <body>
+    <div id="root"></div>
+  </body>
+  <script type="text/babel">
+    class MainApp extends React.Component {
+      constructor(props) {
+        super(props);
+        this.state = {
+          items: [1, 2, 3, 4],
+          currentValue: null,
+          single_class: null,
+          currentKey: null,
+          suggestions: {},
+          results: {},
+          history: ["ASU 101"],
+          randomHeader: this.buildRandomHeader()
+        };
+      }
+
+      async getSuggestions(inputValue) {
+        let url = "http://127.0.0.1:8080/" + "suggest";
+        let options = {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify({
+            input: inputValue
+          })
+        };
+        const response = await fetch(url, options);
+        const json = await response.json();
+        // console.log(json);
+        return json;
+      }
+
+      async getQueryResults(inputValue) {
+        let url = "http://127.0.0.1:8080/" + "search";
+        let options = {
+          method: "POST",
+          headers: {
+            "content-type": "application/json"
+          },
+          body: JSON.stringify({
+            input: inputValue
+          })
+        };
+        const response = await fetch(url, options);
+        const json = await response.json();
+        // console.log(json);
+        return json;
+      }
+
+      handleType(event) {
+        if (event.target.value === "") {
+          return;
+        }
+
+        this.getSuggestions(event.target.value).then(suggestions => {
+          this.setState({ suggestions: suggestions.message });
+        });
+
+        this.getQueryResults(event.target.value).then(results => {
+          this.setState({ results: results });
+        });
+
+        // console.log(event.target.value);
+      }
+
+      buildRandomHeader() {
+        return (
+          <section>
+            <span style={{ color: "#4285f4" }}>
+              {Math.random()
+                .toString(36)
+                .replace(/[^a-z]+/g, "")
+                .substr(0, 1)}
+            </span>
+            <span style={{ color: "#ea4335" }}>o</span>
+            <span style={{ color: "#fbbc05" }}>o</span>
+            <span style={{ color: "#4285f4" }}>
+              {Math.random()
+                .toString(36)
+                .replace(/[^a-z]+/g, "")
+                .substr(0, 1)}
+            </span>
+            <span style={{ color: "#34a853" }}>
+              {Math.random()
+                .toString(36)
+                .replace(/[^a-z]+/g, "")
+                .substr(0, 1)}
+            </span>
+            <span style={{ color: "#ea4335" }}>
+              {Math.random()
+                .toString(36)
+                .replace(/[^a-z]+/g, "")
+                .substr(0, 1)}
+            </span>
+          </section>
+        );
+      }
+
+      handleDataRefresh() {
+        const Http = new XMLHttpRequest();
+        const url = "/flush";
+        Http.open("GET", url);
+        Http.send();
+        // wait a second and refresh - should be callback and use fetch
+        setTimeout(() => {
+          const Http = new XMLHttpRequest();
+          const url = "/ingester";
+          Http.open("GET", url);
+          Http.send();
+        }, 1000);
+      }
+
+      render() {
+        return (
+          <section>
+            <section className="header-row">
+              <div className="header-logo-div">{this.state.randomHeader}</div>
+              <div className="header-subtext-div">
+                <small>
+                  Search your textbook, syllabus and faq in milliseconds
+                </small>
+              </div>
+            </section>
+            <section className="search-bar-row">
+              <form>
+                <input
+                  className="search-bar-input"
+                  autoComplete="off"
+                  type="text"
+                  name="firstname"
+                  onChange={this.handleType.bind(this)}
+                />
+              </form>
+            </section>
+
+            <section className="results-row">
+              {Object.entries(this.state.results).map((data, dindex) => {
+                const key = data[0];
+                console.log(data[1]);
+                const value = data[1];
+
+                if (value == null) {
+                  return;
+                }
+                // .filter(function(e) {                   return e.replace(/(\r\n|\n|\r)/gm, "");                 });
+                let countResults = value.length;
+                const inner = value.map((dat, inx) => {
+                  return (
+                    <section key={"px_" + inx} className="inner-result">
+                      <p>{dat.indexed_text}</p>
+                      <p>
+                        {dat.location}: {dat.value}
+                      </p>
+                    </section>
+                  );
+                });
+                return (
+                  <div key={"result_" + dindex} className="outer-result">
+                    {countResults > 0 && (
+                      <div>
+                        <strong style={{ color: "#555" }}>{key}</strong>
+                        <br />
+                        {inner}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </section>
+            <div>
+              <a href="#" onClick={this.handleDataRefresh} className="refresh-btn">
+                Refesh Data
+              </a>
+            </div>
+          </section>
+        );
+      }
+    }
+    ReactDOM.render(<MainApp />, document.getElementById("root"));
+  </script>
+</html>

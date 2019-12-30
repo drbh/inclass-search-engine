@@ -1,0 +1,64 @@
+{
+    "textbook": [
+        {
+            "id:2sl_95pYan": "this textbook is a about cars",
+            "key": "id:2sl_95pYan",
+            "location": "page",
+            "indexed_text": "this textbook is a about cars",
+            "value": "0"
+        },
+        {
+            "id:pHzNN7yq_3": "Acura. Alfa Romeo. Aston Martin. Audi. Bentley. BMW. Bugatti. Buick. are brands",
+            "key": "id:pHzNN7yq_3",
+            "location": "page",
+            "indexed_text": "Acura. Alfa Romeo. Aston Martin. Audi. Bentley. BMW. Bugatti. Buick. are brands",
+            "value": "1"
+        },
+        {
+            "id:tAr6bBx-vk": "the engine is what powers a car",
+            "key": "id:tAr6bBx-vk",
+            "location": "page",
+            "indexed_text": "the engine is what powers a car",
+            "value": "2"
+        }
+    ],
+    "syllabus": [
+        {
+            "id:rAqXmNmjrf": "welcome to supply chain 6756879!",
+            "key": "id:rAqXmNmjrf",
+            "location": "line",
+            "indexed_text": "welcome to supply chain 6756879!",
+            "value": "0"
+        }
+    ],
+    "faq": [
+        {
+            "id:oBz2RxV-e6": "when is the final",
+            "key": "id:oBz2RxV-e6",
+            "location": "answer",
+            "indexed_text": "when is the final",
+            "value": "every day!"
+        },
+        {
+            "id:FohLVAPYmf": "when is the first class",
+            "key": "id:FohLVAPYmf",
+            "location": "answer",
+            "indexed_text": "when is the first class",
+            "value": "tomorrow"
+        },
+        {
+            "id:k_vyp_ldLp": "do you like BMW",
+            "key": "id:k_vyp_ldLp",
+            "location": "answer",
+            "indexed_text": "do you like BMW",
+            "value": "yes"
+        },
+        {
+            "id:AvJxlFZgXg": "do you need index cards?",
+            "key": "id:AvJxlFZgXg",
+            "location": "answer",
+            "indexed_text": "do you need index cards?",
+            "value": "yes every student should bring index cards to take notes in class"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+{
+  "textbook": [
+    { "page": 0, "text": "this textbook is a about cars" },
+    {
+      "page": 1,
+      "text": "Acura. Alfa Romeo. Aston Martin. Audi. Bentley. BMW. Bugatti. Buick. are brands"
+    },
+    { "page": 2, "text": "the engine is what powers a car" }
+  ],
+  "syllabus": [{ "line": 0, "text": "welcome to supply chain 6756879!" }],
+  "faq": [
+    { "question": "when is the final", "answer": "every day!" },
+    { "question": "when is the first class", "answer": "tomorrow" },
+    { "question": "do you like BMW", "answer": "yes" },
+    {
+      "question": "do you need index cards?",
+      "answer": "yes every student should bring index cards to take notes in class"
+    }
+  ]
+}
